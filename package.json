@@ -20,6 +20,8 @@
   "homepage": "https://github.com/cendysaputra/webartefak#readme",
   "description": "",
   "dependencies": {
+    "@fontsource/bricolage-grotesque": "^5.2.10",
+    "@fontsource/source-code-pro": "^5.2.7",
     "@tailwindcss/vite": "^4.2.0",
     "gsap": "^3.14.2",
     "tailwindcss": "^4.2.0"

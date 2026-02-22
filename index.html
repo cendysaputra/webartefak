@@ -3,13 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Webartefak</title>
+  <title>CENSE. — The Visual Technologist</title>
+  <meta name="description" content="Ruang Artefak is the digital archive of Cendy, preserving his journey through interface design, creative coding, and visual experiments." />
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+<body class="bg-canvas text-black">
 
-  <h1 class="text-4xl font-bold text-center">
-    🎨 Webartefak — <span class="text-purple-400">Ready!</span>
-  </h1>
+  <!-- Loading Screen (disabled for dev)
+  <div id="loading-screen">
+    <canvas id="noise-canvas"></canvas>
+    <div class="loading-bar">
+      <span><span id="loading-text">Loading Sites</span><span id="loading-dots">...</span></span>
+      <span id="loading-percent">0%</span>
+    </div>
+  </div>
+  -->
+
+  <div id="main-content" class="opacity-0">
+    <div class="grid-lines" aria-hidden="true">
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+    </div>
+    
+    <div class="header-hero-wrapper">
+
+      <!-- Header -->
+      <header class="site-header">
+        <div class="container-page header-inner">
+          <a href="/" class="header-logo">
+            <img src="/assets/images/Logo-CENSE.png" alt="CENSE" />
+          </a>
+          <a href="#" class="header-nav-link">HOME</a>
+          <a href="#about" class="header-nav-link">ABOUT</a>
+          <a href="#work" class="header-nav-link">WORK</a>
+          <a href="#services" class="header-nav-link">SERVICES</a>
+          <a href="#contact" class="header-nav-link">CONTACT</a>
+          <div class="header-lang">
+            <span class="lang-dot"></span>
+            <span class="lang-option active">EN</span>
+            <span class="lang-option">ID</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Hero -->
+      <section class="hero-section">
+        <div class="container-page hero-content">
+          <h1 class="hero-title">
+            The Visual<br />Technologist<span class="text-primary">.</span>
+          </h1>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
 
   <script type="module" src="/src/main.js"></script>
 </body>

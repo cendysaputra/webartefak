@@ -1,3 +1,300 @@
 @import "tailwindcss";
+@import "@fontsource/bricolage-grotesque/400.css";
+@import "@fontsource/bricolage-grotesque/500.css";
+@import "@fontsource/bricolage-grotesque/600.css";
+@import "@fontsource/bricolage-grotesque/700.css";
+@import "@fontsource/bricolage-grotesque/800.css";
+@import "@fontsource/source-code-pro/400.css";
+@import "@fontsource/source-code-pro/500.css";
+@import "@fontsource/source-code-pro/600.css";
+@import "@fontsource/source-code-pro/700.css";
 
-/* Custom styles di bawah ini */
+@theme {
+  --color-primary: #FE5425;
+  --color-white: #FFFFFF;
+  --color-black: #121212;
+  --color-canvas: #F7F7F7;
+  --color-gray: #EEEEEE;
+
+  --font-heading: 'Bricolage Grotesque', sans-serif;
+  --font-mono: 'Source Code Pro', monospace;
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1440px;
+}
+
+/* ===================== Base ===================== */
+
+@layer base {
+  html {
+    font-family: var(--font-heading);
+    background-color: var(--color-canvas);
+    color: var(--color-black);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .container-page {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 24px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .container-page {
+      padding-inline: 0;
+    }
+  }
+}
+
+/* ===================== Loading Screen ===================== */
+
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #F7F7F7;
+  display: flex;
+  align-items: flex-end;
+}
+
+#noise-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.loading-bar {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 16px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 16px;
+  color: #121212;
+}
+
+@media (min-width: 768px) {
+  .loading-bar {
+    padding: 40px 24px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .loading-bar {
+    padding: 48px 48px;
+    font-size: 32px;
+  }
+}
+
+/* ===================== Grid Lines Background ===================== */
+
+.grid-lines {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 16px;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .grid-lines {
+    padding-inline: 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .grid-lines {
+    padding-inline: 0;
+  }
+}
+
+.grid-line {
+  border-right: 1px solid #EEEEEE;
+  height: 100%;
+}
+
+.grid-line:first-child {
+  border-left: 1px solid #EEEEEE;
+}
+
+/* ===================== Header ===================== */
+
+.site-header {
+  position: relative;
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 24px;
+}
+
+.header-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.header-logo img {
+  height: 24px;
+  width: auto;
+}
+
+
+.header-nav-link {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #121212;
+  text-decoration: none;
+  letter-spacing: -0.05em;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.header-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  height: 1px;
+  background-color: #FE5425;
+  transition: left 0.3s ease, right 0.3s ease;
+}
+
+.header-nav-link:hover::after {
+  left: 0;
+  right: 0;
+}
+
+.header-nav-link:not(:hover)::after {
+  left: 100%;
+  right: 0;
+}
+
+.header-lang {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 16px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.lang-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FE5425;
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.15; }
+}
+
+.lang-option {
+  color: rgba(18, 18, 18, 0.35);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.lang-option.active {
+  color: #121212;
+}
+
+.lang-option:hover {
+  color: #121212;
+}
+
+/* Mobile header */
+@media (max-width: 767px) {
+  .header-nav {
+    display: none;
+  }
+
+  .header-lang {
+    display: none;
+  }
+}
+
+/* ===================== Header + Hero Wrapper ===================== */
+
+.header-hero-wrapper {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===================== Hero Section ===================== */
+
+.hero-section {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 64px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding-left: calc(100% / 12);
+}
+
+.hero-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 500;
+  font-size: 128px;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: #121212;
+}
+
+@media (max-width: 1023px) {
+  .hero-title {
+    font-size: 72px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: 48px;
+  }
+
+  .hero-section {
+    padding-bottom: 40px;
+  }
+}
