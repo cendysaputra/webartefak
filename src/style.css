@@ -144,30 +144,6 @@
 
 /* ===================== Header ===================== */
 
-.site-header {
-  position: relative;
-  z-index: 100;
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-block: 24px;
-}
-
-.header-logo {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-}
-
-.header-logo img {
-  height: 24px;
-  width: auto;
-}
-
-
 .header-nav-link {
   font-family: 'Source Code Pro', monospace;
   font-size: 16px;
@@ -201,21 +177,7 @@
   right: 0;
 }
 
-.header-lang {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Source Code Pro', monospace;
-  font-size: 16px;
-  font-weight: 500;
-  flex-shrink: 0;
-}
-
 .lang-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #FE5425;
   animation: blink 1.5s ease-in-out infinite;
 }
 
@@ -226,7 +188,6 @@
 
 .lang-option {
   color: rgba(18, 18, 18, 0.35);
-  cursor: pointer;
   transition: color 0.2s ease;
 }
 
@@ -236,27 +197,6 @@
 
 .lang-option:hover {
   color: #121212;
-}
-
-/* Mobile header */
-@media (max-width: 767px) {
-  .header-nav {
-    display: none;
-  }
-
-  .header-lang {
-    display: none;
-  }
-}
-
-/* ===================== Header + Hero Wrapper ===================== */
-
-.header-hero-wrapper {
-  position: relative;
-  z-index: 1;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 /* ===================== Hero Section ===================== */
@@ -278,9 +218,21 @@
   font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 500;
   font-size: 128px;
-  line-height: 0.95;
+  line-height: 1.05;
   letter-spacing: -0.05em;
   color: #121212;
+  overflow-x: clip;
+  overflow-y: visible;
+  perspective: 600px;
+}
+
+.hero-line {
+  display: block;
+}
+
+.hero-char {
+  display: inline-block;
+  will-change: transform, opacity;
 }
 
 @media (max-width: 1023px) {
